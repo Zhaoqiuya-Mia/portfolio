@@ -37,6 +37,7 @@ const portfolioData = [
         id: 3,
         title: "IP形象设计",
         category: "ip",
+        featured: true,
         modalMode: "horizontal",
         cover: "assets/ip/ip-01.jpg",
         images: [
