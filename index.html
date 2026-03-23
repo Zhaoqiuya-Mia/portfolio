@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视觉设计师作品集 | Visual Designer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts - Serif and Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">ZHAO <span class="gold-text">QIUYA</span></a>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">首页</a></li>
+                <li><a href="#featured">精选作品</a></li>
+                <li class="dropdown">
+                    <a href="#portfolio">作品分类</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#portfolio" data-filter="brand">品牌设计</a></li>
+                        <li><a href="#portfolio" data-filter="ui">UI设计</a></li>
+                        <li><a href="#portfolio" data-filter="ip">IP形象设计</a></li>
+                        <li><a href="#portfolio" data-filter="layout">版式设计</a></li>
+                        <li><a href="#portfolio" data-filter="other">其他设计</a></li>
+                    </ul>
+                </li>
+                <li><a href="#about">关于我</a></li>
+                <li><a href="#contact">联系方式</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero 区域 - 艺术轻奢风格 -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-header">
+                <div class="hero-title-english">PORTFOLIO</div>
+                <div class="hero-title-chinese">个人作品集</div>
+                <div class="design-tags">
+                    <span class="design-tag">品牌设计</span>
+                    <span class="design-tag">UI设计</span>
+                    <span class="design-tag">IP设计</span>
+                    <span class="design-tag">版式设计</span>
+                    <span class="design-tag">包装设计</span>
+                    <span class="design-tag">海报设计</span>
+                </div>
+            </div>
+            
+            <div class="scroll-down">
+                <i data-lucide="chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- 精选作品 -->
+    <section id="featured" class="portfolio-section featured-section">
+        <div class="section-header">
+            <h2 class="section-title">精选作品 / FEATURED</h2>
+        </div>
+
+        <div class="portfolio-grid" id="featuredGrid">
+        </div>
+    </section>
+
+    <!-- 作品分类 -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="section-header">
+            <h2 class="section-title" id="portfolioTitle">作品集 / PORTFOLIO</h2>
+            <div class="category-filters">
+                <button class="filter-btn active" type="button" data-filter="all">全部</button>
+                <button class="filter-btn" type="button" data-filter="brand">品牌设计</button>
+                <button class="filter-btn" type="button" data-filter="ui">UI设计</button>
+                <button class="filter-btn" type="button" data-filter="ip">IP形象设计</button>
+                <button class="filter-btn" type="button" data-filter="layout">版式设计</button>
+                <button class="filter-btn" type="button" data-filter="other">其他设计</button>
+            </div>
+        </div>
+
+        <!-- 作品网格 -->
+        <div class="portfolio-grid" id="portfolioGrid">
+            <!-- 作品卡片将通过 JS 生成 -->
+        </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <div class="about-image">
+                <img class="about-photo" src="assets/about/my-photo.jpg" alt="ZHAO QIUYA">
+            </div>
+            <div class="about-content">
+                <h2 class="about-title">关于我 / ABOUT ME</h2>
+                <div class="about-info">
+                    <h3>赵秋亚 · 视觉设计师 · Visual Designer</h3>
+                    <p>专注视觉设计与品牌美学表达，擅长从品牌策略出发，把控视觉调性与审美落地，注重版式、色彩与细节表达，追求兼具美感与实用性的设计作品，具备从创意到落地的完整项目执行能力。</p>
+                    <div class="professional-fields">
+                        <span>专业领域：</span>
+                        <span>品牌设计</span>
+                        <span>IP形象设计</span>
+                        <span>UI设计</span>
+                        <span>版式设计</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-info">
+                <div class="contact-item">
+                    <i data-lucide="mail"></i>
+                    <span>18868617815@163.com</span>
+                </div>
+                <div class="contact-item">
+                    <i data-lucide="message-circle"></i>
+                    <span>Bypzyx_JLMF</span>
+                </div>
+                <div class="contact-item">
+                    <i data-lucide="phone"></i>
+                    <span>18868617815</span>
+                </div>
+            </div>
+            <p class="copyright">© 2026 ZHAO QIUYA. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <!-- 作品详情弹窗 -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modalBody">
+                <!-- 详情内容由 JS 填充 -->
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

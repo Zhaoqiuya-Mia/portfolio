@@ -1,0 +1,1016 @@
+/* 变量定义 - 艺术轻奢风格 */
+:root {
+    --cream: #F8F6F0; /* 柔和米白 */
+    --light-beige: #E8E3D8; /* 浅米色 */
+    --warm-grey: #8A8178; /* 暖灰色 */
+    --soft-gold: #D4BFA7; /* 柔和香槟金 */
+    --deep-gold: #B89D7A; /* 深香槟金 */
+    --dark-text: #5A524A; /* 深色文字 */
+    --medium-text: #7A7268; /* 中等文字 */
+    --light-text: #9A9288; /* 浅色文字 */
+    --transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    --soft-shadow: 0 8px 32px rgba(138, 129, 120, 0.08);
+    --medium-shadow: 0 12px 40px rgba(138, 129, 120, 0.12);
+    --deep-shadow: 0 20px 60px rgba(138, 129, 120, 0.15);
+}
+
+/* 基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', 'Noto Serif SC', serif;
+    background-color: var(--cream);
+    background-image: 
+        url("https://www.transparenttextures.com/patterns/natural-paper.png"),
+        radial-gradient(circle at 20% 80%, rgba(212, 191, 167, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(184, 157, 122, 0.08) 0%, transparent 50%);
+    color: var(--dark-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    letter-spacing: 0.3px;
+    font-weight: 400;
+    cursor: none;
+}
+
+/* 自定义光标样式 */
+.custom-cursor {
+    position: fixed;
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--deep-gold);
+    background-color: rgba(212, 191, 167, 0.3);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: all 0.1s ease;
+}
+
+.custom-cursor.hover {
+    background-color: rgba(184, 157, 122, 0.5);
+    transform: scale(1.2);
+}
+
+.custom-cursor.click {
+    transform: scale(0.8);
+    background-color: rgba(184, 157, 122, 0.6);
+}
+
+/* 粒子拖尾样式 */
+.cursor-trail {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background-color: rgba(184, 157, 122, 0.6);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    animation: trail-fade 0.8s ease-out forwards;
+}
+
+@keyframes trail-fade {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+/* 点击波纹效果 */
+.click-ripple {
+    position: fixed;
+    border-radius: 50%;
+    background: rgba(184, 157, 122, 0.2);
+    transform: scale(0);
+    animation: ripple-animation 0.6s ease-out;
+    pointer-events: none;
+    z-index: 9998;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* 导航栏 - 艺术轻奢风格 */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(248, 246, 240, 0.95);
+    backdrop-filter: blur(30px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(184, 157, 122, 0.1);
+    transition: var(--transition);
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: var(--dark-text);
+    text-decoration: none;
+    letter-spacing: 4px;
+    font-family: 'Noto Serif SC', serif;
+}
+
+.gold-text {
+    color: var(--deep-gold);
+}
+
+/* 下拉菜单样式 */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: white;
+    list-style: none;
+    padding: 20px;
+    min-width: 150px;
+    box-shadow: var(--deep-shadow);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    border-radius: 8px;
+    border: 1px solid rgba(197, 160, 89, 0.1);
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(10px);
+}
+
+.dropdown-menu li {
+    margin: 10px 0;
+}
+
+.dropdown-menu a {
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--medium-text);
+    font-size: 0.85rem;
+    font-weight: 400;
+    position: relative;
+    padding: 8px 0;
+    transition: var(--transition);
+    letter-spacing: 1.5px;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--deep-gold);
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--deep-gold);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* Hero 区域 - 艺术轻奢风格 */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: 
+        linear-gradient(135deg, var(--cream) 0%, var(--light-beige) 100%),
+        url("https://www.transparenttextures.com/patterns/natural-paper.png");
+    perspective: 1200px;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 25% 25%, rgba(212, 191, 167, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 75% 75%, rgba(184, 157, 122, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
+    z-index: 1;
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 2;
+    animation: fadeInScale 2s ease-out;
+    position: relative;
+    max-width: 1200px;
+    padding: 0 40px;
+}
+
+.hero-header {
+    margin-bottom: 80px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-title-english {
+    font-size: 8rem;
+    font-weight: 900;
+    letter-spacing: 20px;
+    color: var(--dark-text);
+    margin-bottom: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    position: relative;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.hero-title-english::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 1px;
+    background-color: var(--deep-gold);
+    opacity: 0.7;
+}
+
+.hero-title-chinese {
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: 10px;
+    color: var(--medium-text);
+    font-family: 'Noto Serif SC', serif;
+    margin-top: 45px;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+/* 设计标签布局 */
+.design-tags {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.design-tag {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--deep-gold);
+    font-family: 'Noto Serif SC', serif;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    border: 1px solid rgba(184, 157, 122, 0.2);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.design-tag:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(184, 157, 122, 0.3);
+    color: var(--deep-gold);
+    transform: translateY(-2px);
+}
+
+/* 滚动指示器 */
+.scroll-down {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+    color: var(--deep-gold);
+    opacity: 0.8;
+    font-size: 1.4rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    border: 1px solid rgba(184, 157, 122, 0.2);
+}
+
+.scroll-down:hover {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.1);
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(184, 157, 122, 0.3);
+}
+
+/* 作品分类 - 艺术轻奢风格 */
+.portfolio-section {
+    padding: 120px 5% 100px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.featured-section {
+    padding: 100px 5% 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.portfolio-section.single {
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.section-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    color: var(--dark-text);
+    letter-spacing: 6px;
+    font-weight: 400;
+}
+
+.category-filters {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: none;
+    border: none;
+    padding: 12px 0;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.85rem;
+    color: var(--medium-text);
+    position: relative;
+    transition: var(--transition);
+    letter-spacing: 2.5px;
+    font-weight: 400;
+}
+
+.filter-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--deep-gold);
+    transition: var(--transition);
+}
+
+.filter-btn.active, .filter-btn:hover {
+    color: var(--deep-gold);
+    background: none;
+}
+
+.filter-btn.active::after, .filter-btn:hover::after {
+    width: 100%;
+}
+
+/* 作品网格 */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 50px;
+    padding: 20px 0;
+}
+
+.portfolio-grid.single {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 1100px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.portfolio-grid.single .card-image-container {
+    height: 520px;
+    padding: 24px;
+}
+
+/* 作品卡片 - 艺术轻奢风格 */
+.portfolio-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow: var(--soft-shadow);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(184, 157, 122, 0.1);
+}
+
+.portfolio-card:hover {
+    transform: translateY(-12px);
+    box-shadow: var(--deep-shadow);
+    border-color: rgba(184, 157, 122, 0.2);
+}
+
+.card-image-container {
+    width: 100%;
+    height: 380px;
+    background-color: rgba(248, 246, 240, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 24px;
+}
+
+.card-image-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.8s ease;
+    display: block;
+}
+
+.portfolio-card:hover .card-image-img {
+    transform: scale(1.02);
+}
+
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 25px;
+    background: linear-gradient(to top, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0) 100%);
+    color: var(--dark-text);
+    opacity: 0;
+    transition: var(--transition);
+    z-index: 3;
+    text-align: center;
+}
+
+.portfolio-card:hover .card-overlay {
+    opacity: 1;
+}
+
+.card-info h3 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+}
+
+.card-info p {
+    font-size: 0.75rem;
+    color: var(--deep-gold);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+}
+
+/* 关于我 - 艺术轻奢风格 */
+.about-section {
+    padding: 120px 5%;
+    background-color: rgba(232, 227, 216, 0.3);
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+
+.about-image {
+    flex: 0 0 450px;
+    max-width: 450px;
+    height: 550px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(184, 157, 122, 0.2);
+    box-shadow: var(--medium-shadow);
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.about-content {
+    flex: 1.2;
+}
+
+.about-title {
+    font-size: 2.2rem;
+    margin-bottom: 35px;
+    color: var(--dark-text);
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 400;
+    letter-spacing: 5px;
+}
+
+.about-info h3 {
+    font-size: 1.4rem;
+    color: var(--deep-gold);
+    margin-bottom: 25px;
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.about-info p {
+    margin-bottom: 35px;
+    font-size: 1rem;
+    opacity: 0.85;
+    line-height: 1.7;
+    color: var(--medium-text);
+}
+
+.professional-fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+}
+
+.professional-fields span:first-child {
+    font-weight: 500;
+    color: var(--dark-text);
+    font-size: 0.95rem;
+}
+
+.professional-fields span:not(:first-child) {
+    background-color: rgba(184, 157, 122, 0.1);
+    color: var(--deep-gold);
+    padding: 6px 14px;
+    border-radius: 18px;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    border: 1px solid rgba(184, 157, 122, 0.15);
+}
+
+/* 页脚 - 艺术轻奢风格 */
+footer {
+    padding: 80px 5% 40px;
+    background-color: rgba(248, 246, 240, 0.8);
+    border-top: 1px solid rgba(184, 157, 122, 0.1);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.footer-info {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--medium-text);
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+    transition: var(--transition);
+}
+
+.contact-item i {
+    width: 20px;
+    color: var(--soft-gold);
+}
+
+.contact-item:hover {
+    color: var(--deep-gold);
+}
+
+.contact-item:hover i {
+    color: var(--deep-gold);
+}
+
+.social-links {
+    display: flex;
+    gap: 35px;
+    margin-top: 25px;
+}
+
+.social-links a {
+    color: var(--medium-text);
+    transition: var(--transition);
+    font-size: 1.2rem;
+}
+
+.social-links a:hover {
+    color: var(--deep-gold);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    font-size: 0.75rem;
+    color: var(--light-text);
+    letter-spacing: 2px;
+    opacity: 0.8;
+}
+
+/* 弹窗 - 全屏磨砂玻璃样式 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(25px); /* 磨砂玻璃效果 */
+    -webkit-backdrop-filter: blur(25px);
+    overflow-y: auto;
+    scrollbar-width: none; /* 隐藏滚动条 Firefox */
+}
+
+.modal::-webkit-scrollbar {
+    display: none; /* 隐藏滚动条 Chrome/Safari */
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 1200px; /* 增加宽度限制，保证在大屏上不过宽 */
+    margin: 0 auto;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    position: relative;
+    box-shadow: none;
+}
+
+.close-modal {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    font-size: 3rem;
+    cursor: pointer;
+    color: var(--gold); /* 香槟金关闭按钮 */
+    z-index: 2100;
+    transition: var(--transition);
+    line-height: 1;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.close-modal:hover {
+    transform: rotate(90deg) scale(1.1);
+}
+
+.modal-detail {
+    padding: 100px 5% 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 60px;
+    max-width: 800px;
+}
+
+.modal-header h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 2.5rem;
+    color: var(--dark-grey);
+    margin-bottom: 15px;
+    letter-spacing: 3px;
+}
+
+.modal-category {
+    color: var(--gold);
+    letter-spacing: 4px;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+.modal-desc {
+    color: var(--text-color);
+    line-height: 1.8;
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+.modal-image-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* 图片无缝垂直排列 */
+}
+
+.modal-image-scroller {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 0;
+    align-items: center;
+}
+
+.modal-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5%;
+}
+
+.modal-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto; /* 高度按原图比例自动计算 */
+    display: block;
+    margin: 0;
+    pointer-events: none;
+}
+
+.modal-image.modal-image-horizontal {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: calc(100vh - 260px);
+}
+
+.modal-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    border: 1px solid rgba(197, 160, 89, 0.6);
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--gold);
+    font-size: 28px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    z-index: 2100;
+}
+
+.modal-nav:hover {
+    background: rgba(255, 255, 255, 0.75);
+    border-color: var(--gold);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.modal-nav-prev {
+    left: 18px;
+}
+
+.modal-nav-next {
+    right: 18px;
+}
+
+/* 动画 */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 精致金属线条装饰 */
+.hero-content::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes floatText {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translate(-50%, 0);
+    }
+    40% {
+        transform: translate(-50%, -10px);
+    }
+    60% {
+        transform: translate(-50%, -5px);
+    }
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .hero-title-english {
+        font-size: 4rem;
+        letter-spacing: 12px;
+    }
+    
+    .hero-title-chinese {
+        font-size: 1.4rem;
+        letter-spacing: 8px;
+    }
+    
+    .design-tags {
+        gap: 12px;
+    }
+    
+    .design-tag {
+        font-size: 0.8rem;
+        padding: 8px 16px;
+        letter-spacing: 1.5px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .card-image-container {
+        height: 320px;
+        padding: 16px;
+    }
+    
+    .about-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .about-image {
+        width: 100%;
+        max-width: 520px;
+        height: 420px;
+        padding: 12px;
+    }
+    
+    .close-modal {
+        top: 18px;
+        right: 18px;
+        font-size: 2.2rem;
+    }
+
+    .modal-detail {
+        padding: 80px 5% 30px;
+    }
+
+    .modal-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title-english {
+        font-size: 3rem;
+        letter-spacing: 8px;
+    }
+    
+    .hero-title-chinese {
+        font-size: 1rem;
+        letter-spacing: 4px;
+    }
+    
+    .design-tags {
+        gap: 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .design-tag {
+        font-size: 0.65rem;
+        padding: 5px 12px;
+        letter-spacing: 1px;
+    }
+    
+    .scroll-down {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}
+
+/* 移动端恢复默认光标 */
+@media (max-width: 768px) {
+    body {
+        cursor: default;
+    }
+    
+    .custom-cursor,
+    .cursor-trail,
+    .click-ripple {
+        display: none;
+    }
+}
